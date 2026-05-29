@@ -163,7 +163,7 @@ llm = OpenAICompatibleClient(
 )
 
 # --- 2. 初始化 ---
-user_prompt = "你好，请帮我查询一下今天武汉的天气，然后根据天气推荐一个合适的旅游景点。"
+user_prompt = "帮我写一个梦幻西游的搞笑视频脚本，要求紧跟当前热点"
 prompt_history = [f"用户请求: {user_prompt}"]
 
 print(f"用户输入: {user_prompt}\n" + "="*40)
