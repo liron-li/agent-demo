@@ -6,7 +6,7 @@
 
 | 文件 | 模式 | 描述 |
 |------|------|------|
-| `main.py` | ReAct（基础版） | 旅行助手：根据用户查询天气并推荐景点，使用 Thought-Action-Observation 循环 |
+| `main.py` | ReAct（基础版） | 梦幻西游热梗二创短视频脚本生成 Agent：搜索当前热梗和场景网页灵感、匹配玩家梗、生成可拍摄分镜脚本 |
 | `react.py` | ReAct | 带 SerpApi 网页搜索的 ReAct 智能体，可回答实时/事实类问题 |
 | `plan_and_solve.py` | Plan and Solve | 先规划后执行：将复杂问题分解为步骤列表，再逐步执行 |
 | `reflection.py` | Reflection | 反思式代码生成：通过「生成 → 反思 → 优化」迭代提升代码质量 |
@@ -33,21 +33,24 @@ LLM_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
 LLM_TIMEOUT="60"
 
 # 各 Demo 依赖的 API（按需配置）
-TAVILY_API_KEY=""    # main.py 景点搜索
-SERPAPI_API_KEY=""   # react.py 网页搜索
+SERPAPI_API_KEY=""   # main.py 热梗与场景灵感搜索 / react.py 网页搜索
 ```
 
 ### 2. 安装依赖
 
 ```bash
-pip install openai python-dotenv requests tavily-python google-search-results autogen-agentchat autogen-ext
+pip install openai python-dotenv google-search-results autogen-agentchat autogen-ext
 ```
 
 ### 3. 运行 Demo
 
 ```bash
-# 旅行助手（天气 + 景点推荐）
+# 梦幻西游热梗二创短视频脚本生成 Agent
 python main.py
+
+# 也可以传入更具体的创作需求
+python main.py "写一个60秒梦幻西游鉴定无级别翻车的抖音热梗二创脚本"
+python main.py "写一个梦幻西游新区排队、藏宝阁看号、炼妖打书结合热梗的短视频脚本"
 
 # ReAct 搜索智能体
 python react.py
@@ -66,8 +69,7 @@ python autogen.py
 
 | 服务 | 用途 | 获取方式 |
 |------|------|----------|
-| **Tavily** | AI 搜索，用于景点推荐等 | [app.tavily.com](https://app.tavily.com) |
-| **SerpApi** | Google 搜索结果整合 | [serpapi.com](https://serpapi.com) |
+| **SerpApi** | main.py 当前热梗与场景灵感搜索、react.py 网页搜索 | [serpapi.com](https://serpapi.com) |
 
 ## 模式说明
 
